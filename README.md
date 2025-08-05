@@ -1,5 +1,7 @@
 # 🌌 Black Hole Merger Simulation
 
+Go here for interactive simulation: https://interactive-3-d-black-hole-merger.vercel.app/ 
+
 An interactive, scientifically-inspired 3D visualization of binary black hole mergers featuring realistic gravitational physics, stunning visual effects, and real-time rendering.
 
 ![Black Hole Merger Simulation](https://img.shields.io/badge/Three.js-r163-blue?style=flat-square)
