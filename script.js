@@ -12,7 +12,7 @@ import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 // ===== Core Components =====
 let scene, camera, renderer, composer, controls, clock;
 let lensingPass, wavePass, bloomPass;
-let starField, mergerFlare;
+let backgroundSphere, mergerFlare; // Replaced starField with backgroundSphere
 let container;
 
 // ===== Simulation State =====
@@ -37,7 +37,6 @@ const sim = {
 
 // ===== Physics Constants =====
 const G = 400; // Artistic gravitational constant
-const STAR_COUNT = 70000;
 const DISK_PARTICLE_COUNT = 20000;
 const MERGER_FLARE_PARTICLES = 5000;
 const C = 30; // Speed of light for gravitational wave radiation calculation
@@ -185,7 +184,7 @@ function init() {
     controls.rotateSpeed = 0.5;
 
     // Create scene elements
-    createStarField();
+    createBackground(); // New function for static background
     createMergerFlare();
     setupPostProcessing();
     setupUI();
@@ -196,41 +195,60 @@ function init() {
 }
 
 // ===== Scene Creation =====
-function createStarField() {
-    const vertices = [];
-    const colors = [];
-    
-    for (let i = 0; i < STAR_COUNT; i++) {
-        const r = THREE.MathUtils.randFloat(1000, 3000);
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.acos(Math.random() * 2 - 1);
-        
-        vertices.push(
-            r * Math.sin(phi) * Math.cos(theta),
-            r * Math.sin(phi) * Math.sin(theta),
-            r * Math.cos(phi)
-        );
-        
-        // Add color variation
-        const intensity = Math.random() * 0.5 + 0.5;
-        colors.push(intensity, intensity, intensity * 0.9);
+function createBackground() {
+    const radius = 4000;
+    const geometry = new THREE.SphereGeometry(radius, 64, 32);
+
+    // Create a canvas to draw stars and galaxies
+    const canvas = document.createElement('canvas');
+    canvas.width = 4096;
+    canvas.height = 2048;
+    const ctx = canvas.getContext('2d');
+
+    // Black background
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw stars
+    for (let i = 0; i < 20000; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const size = Math.random() * 2 + 0.5;
+        const alpha = Math.random() * 0.5 + 0.2;
+        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fill();
     }
     
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-    geo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-    
-    const mat = new THREE.PointsMaterial({ 
-        size: 1.8, 
-        vertexColors: true,
-        transparent: true, 
-        opacity: 0.7, 
-        blending: THREE.AdditiveBlending, 
-        depthWrite: false 
+    // Draw galaxies/nebulae
+    for (let i = 0; i < 70; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const r = Math.random() * 80 + 20;
+        
+        const grad = ctx.createRadialGradient(x, y, 0, x, y, r);
+        grad.addColorStop(0, `rgba(200, 220, 255, ${Math.random() * 0.1 + 0.05})`);
+        grad.addColorStop(0.5, `rgba(150, 180, 255, ${Math.random() * 0.05})`);
+        grad.addColorStop(1, 'rgba(150, 180, 255, 0)');
+        
+        ctx.fillStyle = grad;
+        ctx.fillRect(x - r, y - r, r * 2, r * 2);
+    }
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    texture.needsUpdate = true;
+
+    const material = new THREE.MeshBasicMaterial({
+        map: texture,
+        side: THREE.BackSide,
+        fog: false // Ensure the background is not affected by fog
     });
-    
-    starField = new THREE.Points(geo, mat);
-    scene.add(starField);
+
+    backgroundSphere = new THREE.Mesh(geometry, material);
+    scene.add(backgroundSphere);
 }
 
 function createMergerFlare() {
@@ -388,8 +406,7 @@ function GravitationalWaveShader() {
                 
                 // Quadrupole wave pattern
                 float quadrupole = cos(angle * 2.0);
-                float wave = sin(dist * frequency - time * 15.0) * amplitude * 
-                           smoothstep(0.0, 0.8, dist) * quadrupole;
+                float wave = sin(dist * frequency - time * 15.0) * amplitude * smoothstep(0.0, 0.8, dist) * quadrupole;
                 
                 vec2 offset = normalize(d) * wave;
                 gl_FragColor = texture2D(tDiffuse, vUv + offset);
@@ -526,10 +543,10 @@ function resetSimulation() {
     const vel1 = new THREE.Vector3(0, 0, orbitalVel * (m2 / totalMass));
     const vel2 = new THREE.Vector3(0, 0, -orbitalVel * (m1 / totalMass));
 
-    // Create black holes
-    sim.bh1 = new BlackHole(m1, pos1, vel1, 0xffcc33, 0xff8800);
-    sim.bh2 = new BlackHole(m2, pos2, vel2, 0x66aaff, 0x0055ff);
-    sim.mergedBh = new BlackHole(1, new THREE.Vector3(), new THREE.Vector3(), 0xffaaff, 0xcc88ff);
+    // Create black holes with NEW colors
+    sim.bh1 = new BlackHole(m1, pos1, vel1, 0xff5733, 0xc70039); // Fiery red/orange
+    sim.bh2 = new BlackHole(m2, pos2, vel2, 0x9b59b6, 0x8e44ad); // Cosmic purple
+    sim.mergedBh = new BlackHole(1, new THREE.Vector3(), new THREE.Vector3(), 0xafeeee, 0x40e0d0); // Bright turquoise
     sim.mergedBh.setVisible(false);
 
     // Initialize disks
@@ -561,8 +578,7 @@ function initDisk(bh) {
         
         const i3 = i * 3;
         positions[i3] = Math.cos(p.angle) * r;
-        positions[i3 + 1] = (Math.random() - 0.5) * bh.radius * 0.2 * 
-                            (1 - (r - bh.radius * 2.5) / (bh.radius * 8));
+        positions[i3 + 1] = (Math.random() - 0.5) * bh.radius * 0.2 * (1 - (r - bh.radius * 2.5) / (bh.radius * 8));
         positions[i3 + 2] = Math.sin(p.angle) * r;
         
         const mix = Math.pow((r - bh.radius * 2.5) / (bh.radius * 8), 0.5);
@@ -600,8 +616,7 @@ function updatePhysics(dt) {
     sim.bh2.vel.add(forceVec.clone().multiplyScalar(-dt / sim.bh2.mass));
 
     // Gravitational wave energy loss (simplified Peters-Mathews formula)
-    const energyLossFactor = (32/5) * (Math.pow(G, 4) / Math.pow(C, 5)) * 
-                             (sim.bh1.mass * sim.bh2.mass * (sim.bh1.mass + sim.bh2.mass)) / 
+    const energyLossFactor = (32/5) * (Math.pow(G, 4) / Math.pow(C, 5)) * (sim.bh1.mass * sim.bh2.mass * (sim.bh1.mass + sim.bh2.mass)) / 
                              Math.pow(r, 4);
     
     // Apply energy loss
@@ -925,9 +940,9 @@ function animate() {
     updateStatusUI();
     updateSystemInfo();
     
-    // Update starfield rotation (slow drift)
-    if (starField) {
-        starField.rotation.y += dt * 0.01;
+    // Make background sphere follow camera
+    if (backgroundSphere) {
+        backgroundSphere.position.copy(camera.position);
     }
     
     // Update controls and render
