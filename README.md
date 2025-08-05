@@ -46,7 +46,7 @@ This project simulates one of the most violent and energetic events in the unive
 
 ## 🚀 Live Demo
 
-[**Launch Simulation →**]([https://your-project.vercel.app](https://interactive-3-d-black-hole-merger.vercel.app/))
+[**Launch Simulation →**]([[https://your-project.vercel.app](https://interactive-3-d-black-hole-merger.vercel.app/)]([https://interactive-3-d-black-hole-merger.vercel.app/](https://interactive-3-d-black-hole-merger.vercel.app/))
 
 *Best experienced on desktop with a modern browser*
 
