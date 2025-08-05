@@ -1,6 +1,6 @@
 # 🌌 Black Hole Merger Simulation
 
-Go here for interactive simulation: https://interactive-3-d-black-hole-merger.vercel.app/ 
+👉 **[Go here for interactive simulation](https://interactive-3-d-black-hole-merger.vercel.app/)**
 
 An interactive, scientifically-inspired 3D visualization of binary black hole mergers featuring realistic gravitational physics, stunning visual effects, and real-time rendering.
 
@@ -48,7 +48,7 @@ This project simulates one of the most violent and energetic events in the unive
 
 ## 🚀 Live Demo
 
-[**Launch Simulation →**]([[https://your-project.vercel.app](https://interactive-3-d-black-hole-merger.vercel.app/)]([https://interactive-3-d-black-hole-merger.vercel.app/](https://interactive-3-d-black-hole-merger.vercel.app/))
+**[Go here for interactive simulation](https://interactive-3-d-black-hole-merger.vercel.app/)**
 
 *Best experienced on desktop with a modern browser*
 
@@ -61,6 +61,7 @@ This project simulates one of the most violent and energetic events in the unive
 - **Tailwind CSS** - Utility-first CSS framework
 - **Vanilla JavaScript** - No framework dependencies
 
+## The following section is for educators and learners with programming experience. 
 ## 📦 Installation
 
 ### Quick Start
@@ -92,7 +93,7 @@ This project simulates one of the most violent and energetic events in the unive
    http://localhost:8000
    ```
 
-### Deployment
+### Deployment (3 choices to choose from)
 
 #### Vercel (Recommended)
 
@@ -173,12 +174,6 @@ Rs = 2GM/c²
 - **GPU Acceleration**: WebGL shaders for complex calculations
 - **Adaptive Quality**: Pixel ratio capped at 2x for high-DPI displays
 
-### Debug Mode
-
-Add `#debug` to the URL to enable performance monitoring:
-```
-https://your-site.com/#debug
-```
 
 ## 🎨 Visual Effects Details
 
@@ -270,12 +265,9 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 - The scientific community for making complex physics accessible
 
 ## 📧 Contact
+- 👉 **[Sai Gattupalli, Ph.D.](https://saigattupalli.com)**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Project Link: [https://github.com/yourusername/black-hole-merger-simulation](https://github.com/yourusername/black-hole-merger-simulation)
-- Live Demo: [https://your-project.vercel.app](https://your-project.vercel.app)
-
-## 📸 Screenshots
+## 📸 Screenshots (This section is updated continuously)
 
 ### Inspiral Phase
 *Two black holes orbiting each other, slowly losing energy to gravitational waves*
